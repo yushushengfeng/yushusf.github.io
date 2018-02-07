@@ -1,0 +1,615 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>PHP图片处理 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John Doe">
+    
+
+    
+    <meta name="description" content="注：原文地址来源于: [PHP中的图像相关函数操作][http://blog.csdn.net/aerchi/article/details/51943836]如涉及版权，请联系作者删除 imagecreatefrom_gif_jpeg_png 系列函数imagecreatefrom 系列函数用于从文件或 URL 载入一幅图像。 载入图像imagecreatefrom 系列函数用于从文件或 URL">
+<meta name="keywords" content="图片处理,PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP图片处理">
+<meta property="og:url" content="http://yoursite.com/2018/02/07/php-img-deal/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="注：原文地址来源于: [PHP中的图像相关函数操作][http://blog.csdn.net/aerchi/article/details/51943836]如涉及版权，请联系作者删除 imagecreatefrom_gif_jpeg_png 系列函数imagecreatefrom 系列函数用于从文件或 URL 载入一幅图像。 载入图像imagecreatefrom 系列函数用于从文件或 URL">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-07T07:56:33.159Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP图片处理">
+<meta name="twitter:description" content="注：原文地址来源于: [PHP中的图像相关函数操作][http://blog.csdn.net/aerchi/article/details/51943836]如涉及版权，请联系作者删除 imagecreatefrom_gif_jpeg_png 系列函数imagecreatefrom 系列函数用于从文件或 URL 载入一幅图像。 载入图像imagecreatefrom 系列函数用于从文件或 URL">
+
+    
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="Hexo" title="Hexo"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="Hexo">Hexo</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/php">php</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+						<li><a href="/tags">测试</a></li>
+					
+						<li><a href="/categories">查分</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/07/php-img-deal/" title="PHP图片处理" itemprop="url">PHP图片处理</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  <p class="article-time">
+    <time datetime="2018-02-07T07:07:30.000Z" itemprop="datePublished"> 发表于 2018-02-07</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#imagecreatefrom-gif-jpeg-png-系列函数"><span class="toc-number">1.</span> <span class="toc-text">imagecreatefrom_gif_jpeg_png 系列函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecreate"><span class="toc-number">1.1.</span> <span class="toc-text">imagecreate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecolorallocate-函数"><span class="toc-number">1.2.</span> <span class="toc-text">imagecolorallocate 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecolordeallocate-函数"><span class="toc-number">1.3.</span> <span class="toc-text">imagecolordeallocate() 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecopymerge"><span class="toc-number">1.4.</span> <span class="toc-text">imagecopymerge()</span></a></li></ol></li></ol>
+		
+		</div>
+		
+		<p>注：原文地址来源于:</p>
+<p><strong>[PHP中的图像相关函数操作][<a href="http://blog.csdn.net/aerchi/article/details/51943836" target="_blank" rel="noopener">http://blog.csdn.net/aerchi/article/details/51943836</a>]</strong><br>如涉及版权，请联系作者删除</p>
+<h2 id="imagecreatefrom-gif-jpeg-png-系列函数"><a href="#imagecreatefrom-gif-jpeg-png-系列函数" class="headerlink" title="imagecreatefrom_gif_jpeg_png 系列函数"></a>imagecreatefrom_gif_jpeg_png 系列函数</h2><p>imagecreatefrom 系列函数用于从文件或 URL 载入一幅图像。</p>
+<p>载入图像<br>imagecreatefrom 系列函数用于从文件或 URL 载入一幅图像，成功返回图像资源，失败则返回一个空字符串。</p>
+<p>该系列函数有：<br><strong>imagecreatefromgif()</strong>：创建一块画布，并从 GIF 文件或 URL 地址载入一副图像<br><strong>imagecreatefromjpeg()</strong>：创建一块画布，并从 JPEG 文件或 URL 地址载入一副图像<br><strong>imagecreatefrompng()</strong>：创建一块画布，并从 PNG 文件或 URL 地址载入一副图像<br><strong>imagecreatefromwbmp()</strong>：创建一块画布，并从 WBMP 文件或 URL 地址载入一副图像<br><strong>imagecreatefromstring()</strong>：创建一块画布，并从字符串中的图像流新建一副图像</p>
+<hr>
+<p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resource imagecreatefromgif( string filename )</span><br><span class="line">resource imagecreatefromjpeg( string filename )</span><br><span class="line">resource imagecreatefrompng( string filename )</span><br><span class="line">resource imagecreatefromwbmp( string filename )</span><br><span class="line">resource imagecreatefromstring( string image )</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="imagecreate"><a href="#imagecreate" class="headerlink" title="imagecreate"></a>imagecreate</h3><p>如果我们要对图像进行处理，就如其它图像处理软件一样，需要创建一块画布。imagecreate() 和 imagecreatetruecolor() 函数用于创建一幅空白图像。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource imagecreate( int x, int y )</span><br></pre></td></tr></table></figure></p>
+<p>参数 x ，y 分别为要创建图像的宽度和高度像素值，返回一个图像资源。</p>
+<p>注意：本函数不能用于 GIF 文件格式。</p>
+<hr>
+<p>imagedestroy<br>图像处理完成后，使用 imagedestroy() 指令销毁图像资源以释放内存，虽然该函数不是必须的，但使用它是一个好习惯。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool imagedestroy( resource image )</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="imagecolorallocate-函数"><a href="#imagecolorallocate-函数" class="headerlink" title="imagecolorallocate 函数"></a>imagecolorallocate 函数</h3><p>imagecolorallocate() 函数用于为图像分配颜色，返回一个标识符，代表了由给定的 RGB 成分组成的颜色，如果分配失败则返回 -1 。<br>语法：<br>int imagecolorallocate( resource image, int red, int green, int blue )<br>参数 red，green 和 blue 分别是所需要的颜色的 红，绿，蓝 成分，取值范围 0 - 255。</p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&quot;Content-type: image/png&quot;);</span><br><span class="line"></span><br><span class="line">//创建图像</span><br><span class="line">$im = @imagecreate(200, 50) or die(&quot;创建图像资源失败&quot;);</span><br><span class="line"></span><br><span class="line">//图片背景颜色并填充</span><br><span class="line">$bg = imagecolorallocate($im, 204, 204, 204);</span><br><span class="line"></span><br><span class="line">//设定文字颜色</span><br><span class="line">$red = imagecolorallocate($im, 255, 0, 0);</span><br><span class="line">//水平画一行字</span><br><span class="line">imagestring($im, 5, 0, 0, &quot;Hello world!&quot;, $red);</span><br><span class="line"></span><br><span class="line">//以PNG格式输出图像</span><br><span class="line">imagepng($im);</span><br><span class="line"></span><br><span class="line">//销毁图像资源</span><br><span class="line">imagedestroy($im);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="imagecolordeallocate-函数"><a href="#imagecolordeallocate-函数" class="headerlink" title="imagecolordeallocate() 函数"></a>imagecolordeallocate() 函数</h3><p>   imagecolordeallocate() 函数用于取消先前由 imagecolorallocate() 和imagecolorallocatealpha() 函数为图像分配的颜色。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool imagecolordeallocate( resource image, int color )</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$im = @imagecreate(200, 50) or die(&quot;创建图像资源失败&quot;);</span><br><span class="line">$bg = imagecolorallocate($im, 255, 0, 0);</span><br><span class="line">imagecolordeallocate($im, $bg);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="imagecopymerge"><a href="#imagecopymerge" class="headerlink" title="imagecopymerge()"></a>imagecopymerge()</h3><p>imagecopymerge() 函数用于拷贝并合并图像的一部分，成功返回 TRUE ，否则返回 FALSE 。</p>
+<p>语法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">bool imagecopymerge( resource dst_im, resource src_im, int dst_x, int dst_y, int src_x, int src_y,</span><br><span class="line"> int src_w, int src_h, int pct )</span><br></pre></td></tr></table></figure></p>
+<p>参数说明：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dst_im</td>
+<td>目标图像</td>
+</tr>
+<tr>
+<td>src_im</td>
+<td>被拷贝的源图像</td>
+</tr>
+<tr>
+<td>dst_x</td>
+<td>目标图像开始 x 坐标</td>
+</tr>
+<tr>
+<td>dst_y</td>
+<td>目标图像开始 y 坐标，x,y同为 0 则从左上角开始</td>
+</tr>
+<tr>
+<td>src_x</td>
+<td>拷贝图像开始 x 坐标</td>
+</tr>
+<tr>
+<td>src_y</td>
+<td>拷贝图像开始 y 坐标，x,y同为 0 则从左上角开始拷贝</td>
+</tr>
+<tr>
+<td>src_w</td>
+<td>（从 src_x 开始）拷贝的宽度</td>
+</tr>
+<tr>
+<td>src_h</td>
+<td>（从 src_y 开始）拷贝的高度</td>
+</tr>
+<tr>
+<td>pct</td>
+<td>图像合并程度，取值 0-100 ，当 pct=0 时，实际上什么也没做，反之完全合并。</td>
+</tr>
+</tbody>
+</table>
+<p>当为 pct = 100 时对于调色板图像本函数和 imagecopy() 完全一样，参考阅读：</p>
+<p>imagecopy()：拷贝图像或图像的一部分。</p>
+<p>该函数的一个典型应用就是将图像打上水印标识：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&quot;Content-type: image/jpeg&quot;);</span><br><span class="line"></span><br><span class="line">//原始图像</span><br><span class="line">$dst = &quot;images/flower_1.jpg&quot;;</span><br><span class="line"></span><br><span class="line">//得到原始图片信息</span><br><span class="line">$dst_im = imagecreatefromjpeg($dst);</span><br><span class="line">$dst_info = getimagesize($dst);</span><br><span class="line"></span><br><span class="line">//水印图像</span><br><span class="line">$src = &quot;images/logo.gif&quot;;</span><br><span class="line">$src_im = imagecreatefromgif($src);</span><br><span class="line">$src_info = getimagesize($src);	</span><br><span class="line"></span><br><span class="line">//水印透明度</span><br><span class="line">$alpha = 30;</span><br><span class="line"></span><br><span class="line">//合并水印图片</span><br><span class="line">imagecopymerge($dst_im,$src_im,$dst_info[0]-$src_info[0],$dst_info[1]-$src_info[1],0,0,$src_info[0],</span><br><span class="line">$src_info[1],$alpha);</span><br><span class="line"></span><br><span class="line">//输出合并后水印图片</span><br><span class="line">imagejpeg($dst_im);</span><br><span class="line">imagedestroy($dst_im);</span><br><span class="line">imagedestroy($src_im);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>注：使用本地图片进行操作时速度很快，但是如果读取远程图片时，会严重影响服务器处理速度</p>
+<hr>
+<p>PHP 允许将图像以不同格式输出：</p>
+<p><strong>imagegif()</strong>：以 GIF 格式将图像输出到浏览器或文件<br><strong>imagejpeg()</strong>：以 JPEG 格式将图像输出到浏览器或文件<br><strong>imagepng()</strong>：以 PNG 格式将图像输出到浏览器或文件<br><strong>imagewbmp()</strong>：以 WBMP 格式将图像输出到浏览器或文件<br>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">bool imagegif ( resource image [, string filename] )</span><br><span class="line">bool imagejpeg ( resource image [, string filename [, int quality]] )</span><br><span class="line">bool imagepng ( resource image [, string filename] )</span><br><span class="line">bool imagewbmp ( resource image [, string filename [, int foreground]] )</span><br></pre></td></tr></table></figure>
+<p>参数说明：<br>|参数|    说明|<br>| ——– | ——– |<br>|image|    欲输出的图像资源，如 imagecreate() 或 imagecreatefrom 系列函数的返回值|<br>|filename|    可选，指定输出图像的文件名。如果省略，则原始图像流将被直接输出。|<br>|quality|    可选，指定图像质量，范围从 0（最差质量，文件最小）到 100（最佳质量，文件最大），默认75 ，imagejpeg() 独有参数|<br>|foreground    |可选，指定前景色，默认前景色是黑色，imagewbmp() 独有参数|</p>
+<p>绘制一个圆弧并保存到 images 目录下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">header(&quot;Content-type: image/png&quot;);</span><br><span class="line"></span><br><span class="line">$im = @imagecreate(200, 200)or die(&quot;创建图像资源失败&quot;);</span><br><span class="line"></span><br><span class="line">$bg = imagecolorallocate($im, 204, 204, 204);</span><br><span class="line">$red = imagecolorallocate($im, 255, 0, 0);</span><br><span class="line"></span><br><span class="line">imagearc($im, 100, 100, 150, 150, 0, 360, $red);</span><br><span class="line"></span><br><span class="line">imagepng($im,&quot;images/circle.png&quot;);</span><br><span class="line">imagedestroy($im);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>在 images 目录下就会生成一个 circle.png 文件。</p>
+<hr>
+<p>php imagefttext函数用法示例@php使用FreeType 2字体将文本写入图像<br> 说明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">imagefttext($img,$size,$angle,$x,$y,$color,$fontfile,$text)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>$img</strong></td>
+<td>由图像创建函数返回的图像资源</td>
+</tr>
+<tr>
+<td><strong>size</strong></td>
+<td>要使用的水印的字体大小</td>
+</tr>
+<tr>
+<td><strong>angle</strong>（角度）</td>
+<td>文字的倾斜角度，如果是0度代表文字从左往右，如果是90度代表从上往下</td>
+</tr>
+<tr>
+<td><strong>x,y</strong></td>
+<td>水印文字的第一个文字的起始位置</td>
+</tr>
+<tr>
+<td><strong>color</strong></td>
+<td>是水印文字的颜色</td>
+</tr>
+<tr>
+<td><strong>fontfile</strong></td>
+<td>你希望使用truetype字体的路径</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>imagettftext — 用 TrueType 字体向图像</p>
+<p>imagefttext — 使用 FreeType 2 字体将文本写入图像写入文本</p>
+<hr>
+<p><br></p>
+<p><br></p>
+<p><br></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/PHP/">PHP</a>►<a class="article-category-link" href="/categories/PHP/图片处理/">图片处理</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/图片处理/">图片处理</a><a href="/tags/PHP/">PHP</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/02/07/php-img-deal/" data-title="PHP图片处理 | Hexo" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/01/23/hello-world/"  title="Hello World">
+ <strong>下一篇：</strong><br/> 
+ <span>Hello World
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#imagecreatefrom-gif-jpeg-png-系列函数"><span class="toc-number">1.</span> <span class="toc-text">imagecreatefrom_gif_jpeg_png 系列函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecreate"><span class="toc-number">1.1.</span> <span class="toc-text">imagecreate</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecolorallocate-函数"><span class="toc-number">1.2.</span> <span class="toc-text">imagecolorallocate 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecolordeallocate-函数"><span class="toc-number">1.3.</span> <span class="toc-text">imagecolordeallocate() 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#imagecopymerge"><span class="toc-number">1.4.</span> <span class="toc-text">imagecopymerge()</span></a></li></ol></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/图片处理/" title="图片处理">图片处理<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/图片处理/" title="图片处理">图片处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Larry Page in Google. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="John Doe">John Doe</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
