@@ -1,0 +1,610 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>hexo-build | yssfsir</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="John Doe">
+    
+
+    
+    <meta name="description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+<meta name="keywords" content="工具应用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-build">
+<meta property="og:url" content="http://yoursite.com/2018/02/09/hexo-build/index.html">
+<meta property="og:site_name" content="yssfsir">
+<meta property="og:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-09T10:32:06.118Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo-build">
+<meta name="twitter:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+
+    
+    <link rel="alternative" href="/atom.xml" title="yssfsir" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="yssfsir" title="yssfsir"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="yssfsir">yssfsir</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页</a></li>
+					
+						<li><a href="/php">php开发</a></li>
+					
+						<li><a href="/webfonts">前端开发</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/about">关于</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2018/02/09/hexo-build/" title="hexo-build" itemprop="url">hexo-build</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  <p class="article-time">
+    <time datetime="2018-02-09T10:03:14.000Z" itemprop="datePublished"> 发表于 2018-02-09</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">&lt;%= __(‘sidebar.communiation’) %&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extensions-插件和主题"><span class="toc-number"></span> <span class="toc-text">Extensions  #插件和主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugins-https-hexo-io-plugins"><span class="toc-number"></span> <span class="toc-text">Plugins: https://hexo.io/plugins/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes-https-hexo-io-themes"><span class="toc-number"></span> <span class="toc-text">Themes: https://hexo.io/themes/</span></a>
+		
+		</div>
+		
+		<p>注：【转载】原文地址来源于:<br><strong>[hexo从零开始到搭建完整][<a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/" target="_blank" rel="noopener">http://visugar.com/2017/05/04/20170504SetUpHexoBlog/</a>]</strong><br>如涉及版权，请联系作者删除</p>
+<p>交流群<br>有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流）</p>
+<p>前言<br>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己搭建一个人博客网站，现在大家用hexo比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
+<p>本篇为从零开始的基础篇，其他SEO、评论系统、统计等请看Hexo博客添加SEO-评论系统-阅读统计-站长统计，本篇所包含的内容如下：</p>
+<p>安装Git Bash<br>安装NodeJs<br>安装hexo<br>生成SSH并添加到github<br>部署项目<br>上传到github<br>绑定个人域名<br>修改及配置主题<br>添加RSS<br>添加评论<br>写文章部分<br>耍起来<br>由于小花的电脑在搭建博客之前就有了各种环境，但是对于没有任何基础的人来讲，我觉得还是从源头开始讲会好一点，就像教别人做菜，总得把所有的用料及步骤说清楚对吧？（大佬们可以自动忽略啊啊啊啊~）</p>
+<ol>
+<li>安装Git Bash<br>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。<br>下载地址</li>
+</ol>
+<p>安装步骤：双击下载好的exe文件，一路next就好啦</p>
+<p>安装好后，打开gitbash，查看版本：</p>
+<p>命令：git version (写这篇博客的时候最新版本：2.12.2)</p>
+<p>git version<br>git version</p>
+<p>然后你就可以在这里发挥你的聪明才智了</p>
+<ol>
+<li>安装NodeJs<br>Hexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所以还是老老实实把这玩意儿装了吧</li>
+</ol>
+<p>下载地址(说明：LTS为长期支持版，Current为当前最新版)</p>
+<p>安装步骤：反正下载好msi文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 Add to PATH ,这样你就不用自己去配置电脑上环境变量了，装完在按 win + r 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量），没有的话你就自由发挥吧。</p>
+<p>查看版本：</p>
+<p>1<br>命令：node -v<br>node-version<br>node-version</p>
+<p>又到自由发挥的时候了</p>
+<ol>
+<li>安装hexo<br>看到这么多安装，千万不要紧张，小哥哥小姐姐们一定要稳住，别怕，因为后面的东西都是在gitbash中用npm工具安装就好了。</li>
+</ol>
+<p>先创建一个文件夹（用来存放所有blog的东西），然后cd到该文件夹下。</p>
+<p>安装hexo命令：</p>
+<p>1<br>npm i -g hexo<br>安装完成后，查看版本：</p>
+<p>npm-v<br>npm-v</p>
+<p>初始化命令：hexo init ，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
+<p>myblog<br>myblog</p>
+<p>解释一下：</p>
+<p>node_modules：是依赖包<br>public：存放的是生成的页面<br>scaffolds：命令生成文章等的模板<br>source：用命令创建的各种文章<br>themes：主题<br>_config.yml：整个博客的配置<br>db.json：source解析所得到的<br>package.json：项目所需模块项目的配置信息<br>做好这些前置工作之后接下来的就是各种配配配置了。</p>
+<ol>
+<li>生成SSH并添加到github<br>没账号的创建账号，有账号的看下面。</li>
+</ol>
+<p>创建一个repo，名称为yourname.github.io, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：<br>new-repo<br>new-repo</p>
+<p>create-repo<br>create-repo</p>
+<p>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</p>
+<p>username<br>username</p>
+<p>email<br>email</p>
+<p>创建SSH</p>
+<p>在gitbash中输入：ssh-keygen -t rsa -C “youremail@example.com，生成ssh。然后按下图的方式找到id_rsa.pub文件的内容。</p>
+<p>ssh-key<br>ssh-key</p>
+<p>将上面获取的ssh放到github中：</p>
+<p>settings<br>settings</p>
+<p>ssh-key<br>ssh-key</p>
+<p>添加一个 New SSH key ，title随便取，key就填刚刚那一段。</p>
+<p>在gitbash中验证是否添加成功：ssh -T git@github.com</p>
+<p>完成下一步你就成功啦！</p>
+<ol>
+<li>部署项目<br>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：</li>
+</ol>
+<p>1<br>2<br>3<br>4<br>deploy:<br>  type: git<br>  repo: <a href="https://github.com/YourgithubName/YourgithubName.github.io.git" target="_blank" rel="noopener">https://github.com/YourgithubName/YourgithubName.github.io.git</a><br>  branch: master<br>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
+<p>1<br>2<br>3<br>hexo clean<br>hexo generate<br>hexo server<br>注：hexo 3.0把服务器独立成个别模块，需要单独安装：npm i hexo-server。</p>
+<p>打开浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<p>接着你就可以遇见天使的微笑了~</p>
+<ol>
+<li>上传到github<br>先安装一波：npm install hexo-deployer-git –save（这样才能将你写好的文章部署到github服务器上并让别人浏览到）</li>
+</ol>
+<p>执行命令(建议每次都按照如下步骤部署)：</p>
+<p>1<br>2<br>3<br>hexo clean<br>hexo generate<br>hexo deploy<br>注意deploy的过程中要输入你的username及passward。如下：</p>
+<p>deploy<br>deploy</p>
+<p>在浏览器中输入<a href="http://yourgithubname.github.io就可以看到你的个人博客啦，是不是很兴奋！" target="_blank" rel="noopener">http://yourgithubname.github.io就可以看到你的个人博客啦，是不是很兴奋！</a></p>
+<p>感觉gitbash中东西太多的时候输入clear命令清空。</p>
+<ol>
+<li>绑定个人域名<br>不想绑定的自行忽略</li>
+</ol>
+<p>第一步购买域名：随便在哪个网站买一个就好了，小花是在阿里云购买的visugar.com, DNS也是顺道在那买的。</p>
+<p>第二步添加CNAME：在项目的source文件夹下新建一个名为CNAME的文件，在里面添加你购买的域名，比如我添加的是visugar.com，只能添加一个哦。</p>
+<p>到DNS中添加一条记录：</p>
+<p>dns-note<br>dns-note</p>
+<p>其中ip地址为你的github的地址，可在cmd中ping一下就能看到(ping yourname.github.io)：</p>
+<p>github-ip<br>github-ip</p>
+<p>接着再次部署一下，用你购买的域名打开，就可以看到你的博客啦~</p>
+<ol>
+<li>修改及配置主题<br>hexo初始化之后默认的主题是landscape , 然后你可以去这个地址里面找到你想要的主题。在github中搜索你要的主题名称，里面都会有该主题的如何使用的介绍，按着来就好了，反正就是改改改！我选的是hueman,看起来挺不错，至少是我喜欢的类型。</li>
+</ol>
+<p>themes<br>themes</p>
+<p>跟该主题相关的配置在themes/hueman/_config.yml里面,然后根据你的需要在这配配配就行了。</p>
+<p>themes-config<br>themes-config</p>
+<p>有的东西我也不知道是啥玩意儿，你要多试多倒腾几次，就能意会啦!下面是针对我所选的主题的两小点(别的主题我没看，可能也是类似:</p>
+<p>在导航栏添加点东西</p>
+<p>例如我添加了一个更新日志的模块。</p>
+<p>在主题的配置文件中，menu添加一栏：Board: /board。</p>
+<p>然后在source中添加一个board，即对应上面的名字。然后再创建一个index.md，里面可以写你想写的内容。</p>
+<p>在主题的hueman/langulages/zh-CN.yml中的index适当的位置加：board: ‘更新日志’，位置和名字是你自己设定。</p>
+<p>重新部署，然后就OK了</p>
+<p>在侧边栏添加点东西</p>
+<p>回到你的主题的配置文件中，找到widgets一栏，在你要添加的位置处添加一条你自定义的名称。例如我的叫communiation且放在了第二行。</p>
+<p>在上面所提到的zh-CN.yml文件中找到sidebar一栏，添加communiation: ‘你要设的名称’。</p>
+<p>在hueman/layout/widget中添加一个communiation.ejs,填入模板</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>&lt;% if (site.posts.length) { %&gt;<br>    <div class="widget-wrap widget-list"><br>        <h3 class="widget-title">&lt;%= __(‘sidebar.communiation’) %&gt;</h3><br>        <div class="widget"><br>            <!--这里添加你要写的内容--><br>        </div><br>    </div><br>&lt;% } %&gt;</p>
+<ol>
+<li>添加RSS<br>先安装rss相关插件：npm i hexo-generator-feed</li>
+</ol>
+<p>在你的项目的_config.yml配置文件下找到Extensions添加如下内容：</p>
+<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</p>
+<h1 id="Extensions-插件和主题"><a href="#Extensions-插件和主题" class="headerlink" title="Extensions  #插件和主题"></a>Extensions  #插件和主题</h1><h2 id="Plugins-https-hexo-io-plugins"><a href="#Plugins-https-hexo-io-plugins" class="headerlink" title="Plugins: https://hexo.io/plugins/"></a>Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></h2><h2 id="Themes-https-hexo-io-themes"><a href="#Themes-https-hexo-io-themes" class="headerlink" title="Themes: https://hexo.io/themes/"></a>Themes: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></h2><p>#RSS订阅<br>plugin:</p>
+<ul>
+<li>hexo-generator-feed<br>#Feed Atom<br>feed:<br>type: atom<br>path: atom.xml<br>limit: 20<br>进入到你的主题的配置文件下，找到你的放rss的位置，添加/atom.xml即可。</li>
+</ul>
+<p>重新部署再打开就能看到效果啦~</p>
+<ol>
+<li>添加评论<br>20170812更新：<br>云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考Hexo博客添加SEO-评论系统-阅读统计-站长统计</li>
+</ol>
+<p>此段已失效。</p>
+<p>先选一个你要使用的第三方评论系统，最好找个靠谱点的（我使用的是网易云跟帖）。</p>
+<p>在主题的配置文件下找到comment，添加一行，例如我添加的是yungentie: 此处自由发挥</p>
+<p>注册完评论系统后获取相应的代码，然后在主题的layout下找到comment新建一个ejs模板文件，名称自定义。</p>
+<p>yungentie<br>yungentie</p>
+<p>找到你的article.ejs模板文件，加上&lt;%- partial(‘comment/你刚刚取得名字’) %&gt;保存。</p>
+<p>重新部署，OK啦</p>
+<ol>
+<li>写文章部分<br>新建文章：hexo new ‘文章名’，然后你就可以在source/_posts路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。<br>关于具体的文章编辑你可以看下官网的介绍<br>至于markdown，可以自行发挥啦~</li>
+</ol>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/前端开发/">前端开发</a>►<a class="article-category-link" href="/categories/前端开发/工具应用/">工具应用</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/工具应用/">工具应用</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="http://yoursite.com/2018/02/09/hexo-build/" data-title="hexo-build | yssfsir" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/02/09/hexo-command/"  title="hexo常用命令笔记">
+ <strong>下一篇：</strong><br/> 
+ <span>hexo常用命令笔记
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">&lt;%= __(‘sidebar.communiation’) %&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extensions-插件和主题"><span class="toc-number"></span> <span class="toc-text">Extensions  #插件和主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugins-https-hexo-io-plugins"><span class="toc-number"></span> <span class="toc-text">Plugins: https://hexo.io/plugins/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes-https-hexo-io-themes"><span class="toc-number"></span> <span class="toc-text">Themes: https://hexo.io/themes/</span></a>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/前端开发/" title="前端开发">前端开发<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/PHP/图片处理/" title="图片处理">图片处理<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/前端开发/工具应用/" title="工具应用">工具应用<sup>2</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">标签</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/工具应用/" title="工具应用">工具应用<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/图片处理/" title="图片处理">图片处理<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PHP/" title="PHP">PHP<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,I&#39;m Yssfsir in China. <br/>
+			This is my blog,believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/2176287895" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		
+		<a href="/about" target="_blank" title="John Doe">John Doe</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e6d1f421bbc9962127a50488f9ed37d1";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
