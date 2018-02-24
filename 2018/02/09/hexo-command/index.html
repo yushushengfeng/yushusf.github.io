@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="yssfsir">
 <meta property="og:description" content="注：【转载】原文地址来源于:[hexo常用命令笔记][https://segmentfault.com/a/1190000002632530]如涉及版权，请联系作者删除 hexo 皮肤Githubhexo 皮肤预览 hexo123npm install hexo -g #安装  npm update hexo -g #升级  hexo init #初始化 简写12345hexo n &amp;quot;我">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-24T03:02:43.139Z">
+<meta property="og:updated_time" content="2018-02-24T07:59:06.865Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo常用命令笔记">
 <meta name="twitter:description" content="注：【转载】原文地址来源于:[hexo常用命令笔记][https://segmentfault.com/a/1190000002632530]如涉及版权，请联系作者删除 hexo 皮肤Githubhexo 皮肤预览 hexo123npm install hexo -g #安装  npm update hexo -g #升级  hexo init #初始化 简写12345hexo n &amp;quot;我">
@@ -242,8 +242,30 @@ is a command line tools instance
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://yoursite.com/2018/02/09/hexo-command/" data-title="hexo常用命令笔记 | yssfsir" data-tsina="" class="share clearfix">
-	  </div>
+	<div class="share-jiathis">
+	  
+<div class="jiathis_style_24x24">
+	<a class="jiathis_button_tsina"></a>
+	<a class="jiathis_button_weixin"></a>
+	<a class="jiathis_button_renren"></a>
+	<a class="jiathis_button_qzone"></a>
+	<a class="jiathis_button_googleplus"></a>
+	<a class="jiathis_button_douban"></a>
+	<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+    var jiathis_config={
+    data_track_clickback:true,
+    sm:"copy,renren,cqq",
+    pic:"",
+    summary:"",
+    
+  </script> 
+<script type="text/javascript" src="//v3.jiathis.com/code/jia.js?uid=
+" charset="utf-8"></script>      
+
+	 </div>
 	
 	</div>
 
@@ -501,55 +523,6 @@ $(document).ready(function(){
 });
 </script>
 
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina'),
-      description = $this.attr('description');
-  var html = [
-  '<div class="hoverqrcode clearfix"></div>',
-  '<a class="overlay" id="qrcode"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
-  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-
-  $('.hoverqrcode').hide();
-
-  var myWidth = 0;
-  function updatehoverqrcode(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-    var qrsize = myWidth > 1024 ? 200:100;
-    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
-    var p = $('.article-share-qrcode').position();
-    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
-                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
-                          .qrcode(options);
-  };
-  $(window).resize(function(){
-    $('.hoverqrcode').hide();
-  });
-  $('.article-share-qrcode').click(function(){
-    updatehoverqrcode();
-    $('.hoverqrcode').toggle();
-  });
-  $('.article-share-qrcode').hover(function(){}, function(){
-      $('.hoverqrcode').hide();
-  });
-});   
-</script>
 
 
 
