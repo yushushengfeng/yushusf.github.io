@@ -11,18 +11,36 @@
     
 
     
-    <meta name="description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+    <meta name="description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。下载地址 安装步骤：双击下载好的exe">
 <meta name="keywords" content="工具应用">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo从零开始到搭建完整">
 <meta property="og:url" content="https://yushushengfeng.github.io/2018/02/09/hexo-build/index.html">
 <meta property="og:site_name" content="yssfsir">
-<meta property="og:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+<meta property="og:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。下载地址 安装步骤：双击下载好的exe">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-02-24T07:57:34.014Z">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/gitversion.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/node-v.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/hexo-v.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/hexo-init.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/new-repo.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/create-repo.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/username.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/email.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/ssh.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/settings.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/ssh-key.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/deploy.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/dns-note.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/githubip.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/themes.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/themes-config.png">
+<meta property="og:image" content="http://opif0c56u.bkt.clouddn.com/yungentie.png">
+<meta property="og:updated_time" content="2018-03-11T11:20:42.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hexo从零开始到搭建完整">
-<meta name="twitter:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 交流群有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流） 前言其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己">
+<meta name="twitter:description" content="注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除 安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。下载地址 安装步骤：双击下载好的exe">
+<meta name="twitter:image" content="http://opif0c56u.bkt.clouddn.com/gitversion.png">
 
     
     <link rel="alternative" href="/atom.xml" title="yssfsir" type="application/atom+xml">
@@ -102,125 +120,138 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">&lt;%= __(‘sidebar.communiation’) %&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extensions-插件和主题"><span class="toc-number"></span> <span class="toc-text">Extensions  #插件和主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugins-https-hexo-io-plugins"><span class="toc-number"></span> <span class="toc-text">Plugins: https://hexo.io/plugins/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes-https-hexo-io-themes"><span class="toc-number"></span> <span class="toc-text">Themes: https://hexo.io/themes/</span></a>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Git-Bash"><span class="toc-number">1.</span> <span class="toc-text">安装Git Bash</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装NodeJs"><span class="toc-number">2.</span> <span class="toc-text">安装NodeJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成SSH并添加到github"><span class="toc-number">4.</span> <span class="toc-text">生成SSH并添加到github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#上传到github"><span class="toc-number">5.</span> <span class="toc-text">上传到github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定个人域名"><span class="toc-number">6.</span> <span class="toc-text">绑定个人域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改及配置主题"><span class="toc-number">7.</span> <span class="toc-text">修改及配置主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">8.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加评论"><span class="toc-number">9.</span> <span class="toc-text">添加评论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#写文章部分"><span class="toc-number">10.</span> <span class="toc-text">写文章部分</span></a></li></ol>
 		
 		</div>
 		
 		<p>注：【转载】原文地址来源于:<br><strong>[hexo从零开始到搭建完整][<a href="http://visugar.com/2017/05/04/20170504SetUpHexoBlog/" target="_blank" rel="noopener">http://visugar.com/2017/05/04/20170504SetUpHexoBlog/</a>]</strong><br>如涉及版权，请联系作者删除</p>
-<p>交流群<br>有相关问题的可进群提问，Hexo交流群：111868326 （其他的前端问题也可以交流）</p>
-<p>前言<br>其实平时自己写的文章并不多，偶尔看到一些东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己搭建一个人博客网站，现在大家用hexo比较多，也比较方便，并且能使用的主题也很多，所以小花就用她啦~</p>
-<p>本篇为从零开始的基础篇，其他SEO、评论系统、统计等请看Hexo博客添加SEO-评论系统-阅读统计-站长统计，本篇所包含的内容如下：</p>
-<p>安装Git Bash<br>安装NodeJs<br>安装hexo<br>生成SSH并添加到github<br>部署项目<br>上传到github<br>绑定个人域名<br>修改及配置主题<br>添加RSS<br>添加评论<br>写文章部分<br>耍起来<br>由于小花的电脑在搭建博客之前就有了各种环境，但是对于没有任何基础的人来讲，我觉得还是从源头开始讲会好一点，就像教别人做菜，总得把所有的用料及步骤说清楚对吧？（大佬们可以自动忽略啊啊啊啊~）</p>
-<ol>
-<li>安装Git Bash<br>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git Bash, 我的是windows环境，所以下载windows版本并安装就可以了。<br>下载地址</li>
-</ol>
+<h1 id="安装Git-Bash"><a href="#安装Git-Bash" class="headerlink" title="安装Git Bash"></a>安装Git Bash</h1><p>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的<a href="https://git-for-windows.github.io/" target="_blank" rel="noopener">Git Bash</a>, 我的是windows环境，所以下载windows版本并安装就可以了。<br><a href="https://gitforwindows.org/" target="_blank" rel="noopener">下载地址</a></p>
 <p>安装步骤：双击下载好的exe文件，一路next就好啦</p>
 <p>安装好后，打开gitbash，查看版本：</p>
 <p>命令：git version (写这篇博客的时候最新版本：2.12.2)</p>
-<p>git version<br>git version</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/gitversion.png" alt="git version"><br></div>
+
 <p>然后你就可以在这里发挥你的聪明才智了</p>
-<ol>
-<li>安装NodeJs<br>Hexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所以还是老老实实把这玩意儿装了吧</li>
-</ol>
-<p>下载地址(说明：LTS为长期支持版，Current为当前最新版)</p>
-<p>安装步骤：反正下载好msi文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 Add to PATH ,这样你就不用自己去配置电脑上环境变量了，装完在按 win + r 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量），没有的话你就自由发挥吧。</p>
+<h1 id="安装NodeJs"><a href="#安装NodeJs" class="headerlink" title="安装NodeJs"></a>安装NodeJs</h1><p>Hexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所以还是老老实实把这玩意儿装了吧</p>
+<p><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>(说明：LTS为长期支持版，Current为当前最新版)</p>
+<p>安装步骤：反正下载好msi文件后，双击打开安装，也是一路<strong>next</strong>，不过在<strong>Custom Setup</strong>这一步记得选<strong>Add to PATH</strong>,这样你就不用自己去配置电脑上环境变量了，装完在按 <strong>win + r</strong>快捷键调出运行，然后输入<strong>cmd</strong>确定，在<strong>cmd</strong>中输入<strong>path</strong>可以看到你的<strong>node</strong>是否配置在里面（环境变量），没有的话你就自由发挥吧。</p>
 <p>查看版本：</p>
-<p>1<br>命令：node -v<br>node-version<br>node-version</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">命令：node -v</span><br></pre></td></tr></table></figure>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/node-v.png" alt="node-version"><br></div>
+
 <p>又到自由发挥的时候了</p>
-<ol>
-<li>安装hexo<br>看到这么多安装，千万不要紧张，小哥哥小姐姐们一定要稳住，别怕，因为后面的东西都是在gitbash中用npm工具安装就好了。</li>
-</ol>
+<h1 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h1><p>看到这么多安装，千万不要紧张，小哥哥小姐姐们一定要稳住，别怕，因为后面的东西都是在<strong>gitbash</strong>中用<strong>npm</strong>工具安装就好了。</p>
 <p>先创建一个文件夹（用来存放所有blog的东西），然后cd到该文件夹下。</p>
 <p>安装hexo命令：</p>
-<p>1<br>npm i -g hexo<br>安装完成后，查看版本：</p>
-<p>npm-v<br>npm-v</p>
-<p>初始化命令：hexo init ，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
-<p>myblog<br>myblog</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g hexo</span><br></pre></td></tr></table></figure>
+<p>安装完成后，查看版本：</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/hexo-v.png" alt="npm-v"><br></div>
+
+<p>初始化命令：<strong>hexo init</strong>，初始化完成之后打开所在的文件夹可以看到以下文件：</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/hexo-init.png" alt="myblog"><br></div>
+
 <p>解释一下：</p>
-<p>node_modules：是依赖包<br>public：存放的是生成的页面<br>scaffolds：命令生成文章等的模板<br>source：用命令创建的各种文章<br>themes：主题<br>_config.yml：整个博客的配置<br>db.json：source解析所得到的<br>package.json：项目所需模块项目的配置信息<br>做好这些前置工作之后接下来的就是各种配配配置了。</p>
-<ol>
-<li>生成SSH并添加到github<br>没账号的创建账号，有账号的看下面。</li>
-</ol>
-<p>创建一个repo，名称为yourname.github.io, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：<br>new-repo<br>new-repo</p>
-<p>create-repo<br>create-repo</p>
+<ul>
+<li>node_modules：是依赖包</li>
+<li>public：存放的是生成的页面</li>
+<li>scaffolds：命令生成文章等的模板</li>
+<li>source：用命令创建的各种文章</li>
+<li>themes：主题</li>
+<li>_config.yml：整个博客的配置</li>
+<li>db.json：source解析所得到的</li>
+<li>package.json：项目所需模块项目的配置信息</li>
+</ul>
+<p>做好这些前置工作之后接下来的就是各种配配配置了。</p>
+<h1 id="生成SSH并添加到github"><a href="#生成SSH并添加到github" class="headerlink" title="生成SSH并添加到github"></a>生成SSH并添加到github</h1><p>没账号的创建账号，有账号的看下面。</p>
+<p>创建一个repo，名称为yourname.github.io, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/new-repo.png" alt="new-repo"><br></div>
+
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/create-repo.png" alt="create-repo"><br></div>
+
 <p>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的）：</p>
-<p>username<br>username</p>
-<p>email<br>email</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/username.png" alt="username"><br></div>
+
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/email.png" alt="email"><br></div>
+
+
 <p>创建SSH</p>
-<p>在gitbash中输入：ssh-keygen -t rsa -C “youremail@example.com，生成ssh。然后按下图的方式找到id_rsa.pub文件的内容。</p>
-<p>ssh-key<br>ssh-key</p>
+<p>在gitbash中输入：<strong>ssh-keygen -t rsa -C “youremail@example.com</strong>，生成ssh。然后按下图的方式找到id_rsa.pub文件的内容。</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/ssh.png" alt="ssh-key"><br></div>
+
+
 <p>将上面获取的ssh放到github中：</p>
-<p>settings<br>settings</p>
-<p>ssh-key<br>ssh-key</p>
-<p>添加一个 New SSH key ，title随便取，key就填刚刚那一段。</p>
-<p>在gitbash中验证是否添加成功：ssh -T git@github.com</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/settings.png" alt="settings"><br></div>
+
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/ssh-key.png" alt="ssh-key"><br></div>
+
+
+<p>添加一个 <strong>New SSH key</strong> ，title随便取，key就填刚刚那一段。</p>
+<p>在gitbash中验证是否添加成功：<strong>ssh -T git@github.com</strong></p>
 <p>完成下一步你就成功啦！</p>
 <ol>
 <li>部署项目<br>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：</li>
 </ol>
-<p>1<br>2<br>3<br>4<br>deploy:<br>  type: git<br>  repo: <a href="https://github.com/YourgithubName/YourgithubName.github.io.git" target="_blank" rel="noopener">https://github.com/YourgithubName/YourgithubName.github.io.git</a><br>  branch: master<br>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
-<p>1<br>2<br>3<br>hexo clean<br>hexo generate<br>hexo server<br>注：hexo 3.0把服务器独立成个别模块，需要单独安装：npm i hexo-server。</p>
-<p>打开浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/YourgithubName/YourgithubName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo server</span><br></pre></td></tr></table></figure>
+<p>注：hexo 3.0把服务器独立成个别模块，需要单独安装：<strong>npm i hexo-server</strong>。</p>
+<p>打开浏览器输入：<strong><a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></strong></p>
 <p>接着你就可以遇见天使的微笑了~</p>
-<ol>
-<li>上传到github<br>先安装一波：npm install hexo-deployer-git –save（这样才能将你写好的文章部署到github服务器上并让别人浏览到）</li>
-</ol>
+<h1 id="上传到github"><a href="#上传到github" class="headerlink" title="上传到github"></a>上传到github</h1><p>先安装一波：<strong>npm install hexo-deployer-git –save</strong>（这样才能将你写好的文章部署到github服务器上并让别人浏览到）</p>
 <p>执行命令(建议每次都按照如下步骤部署)：</p>
-<p>1<br>2<br>3<br>hexo clean<br>hexo generate<br>hexo deploy<br>注意deploy的过程中要输入你的username及passward。如下：</p>
-<p>deploy<br>deploy</p>
-<p>在浏览器中输入<a href="http://yourgithubname.github.io就可以看到你的个人博客啦，是不是很兴奋！" target="_blank" rel="noopener">http://yourgithubname.github.io就可以看到你的个人博客啦，是不是很兴奋！</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<p>注意deploy的过程中要输入你的username及passward。如下：</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/deploy.png" alt="deploy"><br></div>
+
+<p>在浏览器中输入<strong><a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a></strong>就可以看到你的个人博客啦，是不是很兴奋！</p>
 <p>感觉gitbash中东西太多的时候输入clear命令清空。</p>
-<ol>
-<li>绑定个人域名<br>不想绑定的自行忽略</li>
-</ol>
+<h1 id="绑定个人域名"><a href="#绑定个人域名" class="headerlink" title="绑定个人域名"></a>绑定个人域名</h1><p>不想绑定的自行忽略</p>
 <p>第一步购买域名：随便在哪个网站买一个就好了，小花是在阿里云购买的visugar.com, DNS也是顺道在那买的。</p>
-<p>第二步添加CNAME：在项目的source文件夹下新建一个名为CNAME的文件，在里面添加你购买的域名，比如我添加的是visugar.com，只能添加一个哦。</p>
+<p>第二步添加CNAME：在项目的source文件夹下新建一个名为CNAME的文件，在里面添加你购买的域名，比如我添加的是<strong>visugar.com</strong>，只能添加一个哦。</p>
 <p>到DNS中添加一条记录：</p>
-<p>dns-note<br>dns-note</p>
-<p>其中ip地址为你的github的地址，可在cmd中ping一下就能看到(ping yourname.github.io)：</p>
-<p>github-ip<br>github-ip</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/dns-note.png" alt="dns-note"><br></div>
+
+<p>其中ip地址为你的github的地址，可在cmd中ping一下就能看到(<strong>ping yourname.github.io</strong>)：</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/githubip.png" alt="github-ip"><br></div>
+
 <p>接着再次部署一下，用你购买的域名打开，就可以看到你的博客啦~</p>
-<ol>
-<li>修改及配置主题<br>hexo初始化之后默认的主题是landscape , 然后你可以去这个地址里面找到你想要的主题。在github中搜索你要的主题名称，里面都会有该主题的如何使用的介绍，按着来就好了，反正就是改改改！我选的是hueman,看起来挺不错，至少是我喜欢的类型。</li>
-</ol>
-<p>themes<br>themes</p>
-<p>跟该主题相关的配置在themes/hueman/_config.yml里面,然后根据你的需要在这配配配就行了。</p>
-<p>themes-config<br>themes-config</p>
+<h1 id="修改及配置主题"><a href="#修改及配置主题" class="headerlink" title="修改及配置主题"></a>修改及配置主题</h1><p>hexo初始化之后默认的主题是<strong>landscape</strong> , 然后你可以去这个地址里面找到你想要的主题。在github中搜索你要的主题名称，里面都会有该主题的如何使用的介绍，按着来就好了，反正就是改改改！我选的是hueman,看起来挺不错，至少是我喜欢的类型。</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/themes.png" alt="themes"><br></div>
+
+<p>跟该主题相关的配置在<strong>themes/hueman/_config.yml</strong>里面,然后根据你的需要在这配配配就行了。</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/themes-config.png" alt="themes-config"><br></div>
+
 <p>有的东西我也不知道是啥玩意儿，你要多试多倒腾几次，就能意会啦!下面是针对我所选的主题的两小点(别的主题我没看，可能也是类似:</p>
-<p>在导航栏添加点东西</p>
+<p><strong>在导航栏添加点东西</strong></p>
 <p>例如我添加了一个更新日志的模块。</p>
-<p>在主题的配置文件中，menu添加一栏：Board: /board。</p>
+<p>在主题的配置文件中，menu添加一栏：<strong>Board: /board</strong>。</p>
 <p>然后在source中添加一个board，即对应上面的名字。然后再创建一个index.md，里面可以写你想写的内容。</p>
-<p>在主题的hueman/langulages/zh-CN.yml中的index适当的位置加：board: ‘更新日志’，位置和名字是你自己设定。</p>
+<p>在主题的<strong>hueman/langulages/zh-CN.yml</strong>中的index适当的位置加：<strong>board: ‘更新日志’</strong>，位置和名字是你自己设定。</p>
 <p>重新部署，然后就OK了</p>
-<p>在侧边栏添加点东西</p>
+<p><strong>在侧边栏添加点东西</strong></p>
 <p>回到你的主题的配置文件中，找到widgets一栏，在你要添加的位置处添加一条你自定义的名称。例如我的叫communiation且放在了第二行。</p>
 <p>在上面所提到的zh-CN.yml文件中找到sidebar一栏，添加communiation: ‘你要设的名称’。</p>
 <p>在hueman/layout/widget中添加一个communiation.ejs,填入模板</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>&lt;% if (site.posts.length) { %&gt;<br>    <div class="widget-wrap widget-list"><br>        <h3 class="widget-title">&lt;%= __(‘sidebar.communiation’) %&gt;</h3><br>        <div class="widget"><br>            <!--这里添加你要写的内容--><br>        </div><br>    </div><br>&lt;% } %&gt;</p>
-<ol>
-<li>添加RSS<br>先安装rss相关插件：npm i hexo-generator-feed</li>
-</ol>
-<p>在你的项目的_config.yml配置文件下找到Extensions添加如下内容：</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11</p>
-<h1 id="Extensions-插件和主题"><a href="#Extensions-插件和主题" class="headerlink" title="Extensions  #插件和主题"></a>Extensions  #插件和主题</h1><h2 id="Plugins-https-hexo-io-plugins"><a href="#Plugins-https-hexo-io-plugins" class="headerlink" title="Plugins: https://hexo.io/plugins/"></a>Plugins: <a href="https://hexo.io/plugins/" target="_blank" rel="noopener">https://hexo.io/plugins/</a></h2><h2 id="Themes-https-hexo-io-themes"><a href="#Themes-https-hexo-io-themes" class="headerlink" title="Themes: https://hexo.io/themes/"></a>Themes: <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></h2><p>#RSS订阅<br>plugin:</p>
-<ul>
-<li>hexo-generator-feed<br>#Feed Atom<br>feed:<br>type: atom<br>path: atom.xml<br>limit: 20<br>进入到你的主题的配置文件下，找到你的放rss的位置，添加/atom.xml即可。</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;% if (site.posts.length) &#123; %&gt;</span><br><span class="line">    &lt;div class=&quot;widget-wrap widget-list&quot;&gt;</span><br><span class="line">        &lt;h3 class=&quot;widget-title&quot;&gt;&lt;%= __(&apos;sidebar.communiation&apos;) %&gt;&lt;/h3&gt;</span><br><span class="line">        &lt;div class=&quot;widget&quot;&gt;</span><br><span class="line">            &lt;!--这里添加你要写的内容--&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="添加RSS"><a href="#添加RSS" class="headerlink" title="添加RSS"></a>添加RSS</h1><p>先安装rss相关插件：<strong>npm i hexo-generator-feed</strong></p>
+<p>在你的项目的<strong>_config.yml</strong>配置文件下找到Extensions添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Extensions  #插件和主题</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">#RSS订阅</span><br><span class="line">plugin:</span><br><span class="line">- hexo-generator-feed</span><br><span class="line">#Feed Atom</span><br><span class="line">feed:</span><br><span class="line">  type: atom</span><br><span class="line">  path: atom.xml</span><br><span class="line">  limit: 20</span><br></pre></td></tr></table></figure>
+<p>进入到你的主题的配置文件下，找到你的放rss的位置，添加/atom.xml即可。</p>
 <p>重新部署再打开就能看到效果啦~</p>
-<ol>
-<li>添加评论<br>20170812更新：<br>云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考Hexo博客添加SEO-评论系统-阅读统计-站长统计</li>
-</ol>
+<h1 id="添加评论"><a href="#添加评论" class="headerlink" title="添加评论"></a>添加评论</h1><p>20170812更新：<br>云更贴已在2017年8月1日停止服务，具体评论系统文章统计站长统计及百度SEO谷歌SEO什么的可参考<a href="http://visugar.com/2017/08/01/20170801HexoPlugins/" target="_blank" rel="noopener">Hexo博客添加SEO-评论系统-阅读统计-站长统计</a></p>
 <p>此段已失效。</p>
 <p>先选一个你要使用的第三方评论系统，最好找个靠谱点的（我使用的是网易云跟帖）。</p>
-<p>在主题的配置文件下找到comment，添加一行，例如我添加的是yungentie: 此处自由发挥</p>
+<p>在主题的配置文件下找到comment，添加一行，例如我添加的是<strong>yungentie: 此处自由发挥</strong></p>
 <p>注册完评论系统后获取相应的代码，然后在主题的layout下找到comment新建一个ejs模板文件，名称自定义。</p>
-<p>yungentie<br>yungentie</p>
+<div align="center"><br><img src="http://opif0c56u.bkt.clouddn.com/yungentie.png" alt="yungentie"><br></div>
+
 <p>找到你的article.ejs模板文件，加上&lt;%- partial(‘comment/你刚刚取得名字’) %&gt;保存。</p>
 <p>重新部署，OK啦</p>
-<ol>
-<li>写文章部分<br>新建文章：hexo new ‘文章名’，然后你就可以在source/_posts路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。<br>关于具体的文章编辑你可以看下官网的介绍<br>至于markdown，可以自行发挥啦~</li>
-</ol>
+<h1 id="写文章部分"><a href="#写文章部分" class="headerlink" title="写文章部分"></a>写文章部分</h1><p>新建文章：<strong>hexo new ‘文章名’</strong>，然后你就可以在<strong>source/_posts</strong>路径下看到你创建的文章啦，编辑完成之后按照前面说的方式部署，在浏览器刷新就能看到你的文章了。</p>
+<ul>
+<li>关于具体的文章编辑你可以看下官网的介绍</li>
+<li>至于markdown，可以自行发挥啦~</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -285,7 +316,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">&lt;%= __(‘sidebar.communiation’) %&gt;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Extensions-插件和主题"><span class="toc-number"></span> <span class="toc-text">Extensions  #插件和主题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugins-https-hexo-io-plugins"><span class="toc-number"></span> <span class="toc-text">Plugins: https://hexo.io/plugins/</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Themes-https-hexo-io-themes"><span class="toc-number"></span> <span class="toc-text">Themes: https://hexo.io/themes/</span></a>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装Git-Bash"><span class="toc-number">1.</span> <span class="toc-text">安装Git Bash</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装NodeJs"><span class="toc-number">2.</span> <span class="toc-text">安装NodeJs</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#安装hexo"><span class="toc-number">3.</span> <span class="toc-text">安装hexo</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#生成SSH并添加到github"><span class="toc-number">4.</span> <span class="toc-text">生成SSH并添加到github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#上传到github"><span class="toc-number">5.</span> <span class="toc-text">上传到github</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#绑定个人域名"><span class="toc-number">6.</span> <span class="toc-text">绑定个人域名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#修改及配置主题"><span class="toc-number">7.</span> <span class="toc-text">修改及配置主题</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加RSS"><span class="toc-number">8.</span> <span class="toc-text">添加RSS</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#添加评论"><span class="toc-number">9.</span> <span class="toc-text">添加评论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#写文章部分"><span class="toc-number">10.</span> <span class="toc-text">写文章部分</span></a></li></ol>
  
   </div>
 
