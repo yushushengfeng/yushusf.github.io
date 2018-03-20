@@ -4,20 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>yssfsir</title>
+    <title>网站性能优化之应用服务器性能优化 | yssfsir</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="John Doe">
     
 
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="yssfsir">
-<meta property="og:url" content="https://yushushengfeng.github.io/index.html">
+    <meta name="description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网站性能优化之应用服务器性能优化">
+<meta property="og:url" content="https://yushushengfeng.github.io/2018/03/16/server-performance-optimization/index.html">
 <meta property="og:site_name" content="yssfsir">
+<meta property="og:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-17T14:57:34.746Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yssfsir">
+<meta name="twitter:title" content="网站性能优化之应用服务器性能优化">
+<meta name="twitter:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
 
     
     <link rel="alternative" href="/atom.xml" title="yssfsir" type="application/atom+xml">
@@ -75,161 +79,83 @@
 </div>
     </header>
     <div id="container">
-      <div id="main">
-
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/03/16/server-performance-optimization/" title="网站性能优化之应用服务器性能优化" itemprop="url">
-  
-    <h1 itemprop="name">网站性能优化之应用服务器性能优化</h1>
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
     
-     
-           <p itemprop="description" >应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。
-分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。</p>
-        
+      <a href="/2018/03/16/server-performance-optimization/" title="网站性能优化之应用服务器性能优化" itemprop="url">网站性能优化之应用服务器性能优化</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="John Doe" target="_blank" itemprop="author">John Doe</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-15T16:02:06.000Z" itemprop="datePublished"> 发表于 2018-03-16</time>
     
-    <time datetime="2018-03-15T16:02:06.000Z" itemprop="datePublished">2018-03-16</time>
-  </a>
-</section>
-
-
-
-
-
-
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a></li></ol>
+		
+		</div>
+		
+		<p>应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。</p>
+<h1 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h1><p>回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。</p>
   
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/03/11/web-frontend-optimization/" title="网站性能优化之Web前端性能优化" itemprop="url">
-  
-    <h1 itemprop="name">网站性能优化之Web前端性能优化</h1>
-    
-     
-           <p itemprop="description" >非原创，整理自：大型网站技术架构(豆瓣)
-一般来说Web前端指网站业务逻辑之前的部分，包括浏览器加载、网站视图模型、图片服务、CDN服务等，主要优化手段有优化浏览器访问、使用反向代理、CDN等。
-浏览器访问优化减少HTTP请求HTTP 协议是无状态的应用层协议，意味着每次HTTP</p>
-        
-    
-    <time datetime="2018-03-11T15:17:19.000Z" itemprop="datePublished">2018-03-11</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/02/24/server-website/" title="常见的网站服务器架构有哪些？" itemprop="url">
-  
-    <h1 itemprop="name">常见的网站服务器架构有哪些？</h1>
-    
-     
-           <p itemprop="description" >作者：牛浩帆链接：https://www.zhihu.com/question/20657269/answer/15763722来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-[只是大框架介绍，实际使用中的不容易注意的细节太多了，需要经验的积累，才</p>
-        
-    
-    <time datetime="2018-02-24T03:52:15.000Z" itemprop="datePublished">2018-02-24</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/02/24/server-website-structure/" title="常见网站服务器架构" itemprop="url">
-  
-    <h1 itemprop="name">常见网站服务器架构</h1>
-    
-     
-           <p itemprop="description" >作者：xlzd链接：https://www.zhihu.com/question/20657269/answer/101795180来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
-初始阶段的网站架构一般来讲，大型网站都是从小型网站发展而来，一开始的</p>
-        
-    
-    <time datetime="2018-02-24T02:56:53.000Z" itemprop="datePublished">2018-02-24</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/02/09/hexo-build/" title="hexo从零开始到搭建完整" itemprop="url">
-  
-    <h1 itemprop="name">hexo从零开始到搭建完整</h1>
-    
-     
-           <p itemprop="description" >注：【转载】原文地址来源于:[hexo从零开始到搭建完整][http://visugar.com/2017/05/04/20170504SetUpHexoBlog/]如涉及版权，请联系作者删除
-安装Git Bash我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git</p>
-        
-    
-    <time datetime="2018-02-09T10:03:14.000Z" itemprop="datePublished">2018-02-09</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/02/09/hexo-command/" title="hexo常用命令笔记" itemprop="url">
-  
-    <h1 itemprop="name">hexo常用命令笔记</h1>
-    
-     
-           <p itemprop="description" >注：【转载】原文地址来源于:[hexo常用命令笔记][https://segmentfault.com/a/1190000002632530]如涉及版权，请联系作者删除
-hexo 皮肤Githubhexo 皮肤预览
-hexo123npm install hexo -g #安装  </p>
-        
-    
-    <time datetime="2018-02-09T03:52:35.000Z" itemprop="datePublished">2018-02-09</time>
-  </a>
-</section>
-
-
-
-
-
-
-  
-<section class="post" itemscope itemprop="blogitem">
-  
-    <a href="/2018/02/07/php-img-deal/" title="PHP图像处理相关函数" itemprop="url">
-  
-    <h1 itemprop="name">PHP图像处理相关函数</h1>
-    
-     
-           <p itemprop="description" >注：原文地址来源于:
-[PHP中的图像相关函数操作][http://blog.csdn.net/aerchi/article/details/51943836]如涉及版权，请联系作者删除
-imagecreatefrom_gif_jpeg_png 系列函数imagecreatefr</p>
-        
-    
-    <time datetime="2018-02-07T07:07:30.000Z" itemprop="datePublished">2018-02-07</time>
-  </a>
-</section>
-
-
-
-
-
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
 
 
 </div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://yushushengfeng.github.io/2018/03/16/server-performance-optimization/" data-title="网站性能优化之应用服务器性能优化 | yssfsir" data-tsina="" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2018/03/11/web-frontend-optimization/"  title="网站性能优化之Web前端性能优化">
+ <strong>下一篇：</strong><br/> 
+ <span>网站性能优化之Web前端性能优化
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+
+
+
+</div>  
       <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a></li></ol>
+ 
+  </div>
 
 <div id="asidepart">
 <div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
@@ -410,12 +336,89 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
   });
 });
 </script>
 
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
 
 
 
@@ -488,4 +491,4 @@ var _hmt = _hmt || [];
 <!-- Tiny_search End -->
 
   </body>
- </html>
+</html>
