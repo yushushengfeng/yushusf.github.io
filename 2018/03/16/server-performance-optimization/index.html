@@ -11,17 +11,18 @@
     
 
     
-    <meta name="description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
+    <meta name="description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。在整个网站应用中，缓存几乎无所不在，既存在于浏览器，也存在于应用服务器和数据库服务器；既可以对数据缓存，也可以对文件缓存，还可以对页面片段缓存。合理使用缓存，对网站性能优化意义重">
+<meta name="keywords" content="服务器架构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="网站性能优化之应用服务器性能优化">
 <meta property="og:url" content="https://yushushengfeng.github.io/2018/03/16/server-performance-optimization/index.html">
 <meta property="og:site_name" content="yssfsir">
-<meta property="og:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
+<meta property="og:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。在整个网站应用中，缓存几乎无所不在，既存在于浏览器，也存在于应用服务器和数据库服务器；既可以对数据缓存，也可以对文件缓存，还可以对页面片段缓存。合理使用缓存，对网站性能优化意义重">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-03-17T14:57:34.746Z">
+<meta property="og:updated_time" content="2018-04-04T14:43:08.033Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="网站性能优化之应用服务器性能优化">
-<meta name="twitter:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。">
+<meta name="twitter:description" content="应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。 分布式缓存回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。在整个网站应用中，缓存几乎无所不在，既存在于浏览器，也存在于应用服务器和数据库服务器；既可以对数据缓存，也可以对文件缓存，还可以对页面片段缓存。合理使用缓存，对网站性能优化意义重">
 
     
     <link rel="alternative" href="/atom.xml" title="yssfsir" type="application/atom+xml">
@@ -57,9 +58,9 @@
 					 
 						<li><a href="/">主页</a></li>
 					
-						<li><a href="/categories/前端开发/">php开发</a></li>
+						<li><a href="/categories/PHP/">php开发</a></li>
 					
-						<li><a href="/categories/PHP/">前端开发</a></li>
+						<li><a href="/categories/前端开发/">前端开发</a></li>
 					
 						<li><a href="/archives">归档</a></li>
 					
@@ -101,17 +102,37 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">缓存的基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合理使用缓存"><span class="toc-number">1.2.</span> <span class="toc-text">合理使用缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#频繁修改的数据"><span class="toc-number">1.2.1.</span> <span class="toc-text">频繁修改的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有热点的访问"><span class="toc-number">1.2.2.</span> <span class="toc-text">没有热点的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据不一致脏读"><span class="toc-number">1.2.3.</span> <span class="toc-text">数据不一致脏读</span></a></li></ol></li></ol></li></ol>
 		
 		</div>
 		
 		<p>应用服务器就是处理网站业务的服务器，网站的业务代码都部署在这里，是网站开发最复杂，变化最多的地方，优化手段主要有缓存、集群、异步等。</p>
-<h1 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h1><p>回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。</p>
-  
+<h1 id="分布式缓存"><a href="#分布式缓存" class="headerlink" title="分布式缓存"></a>分布式缓存</h1><p>回顾网站架构演化历程，当网站遇到性能瓶颈时，第一个想到的解决方案就是使用缓存。在整个网站应用中，缓存几乎无所不在，既存在于浏览器，也存在于应用服务器和数据库服务器；既可以对数据缓存，也可以对文件缓存，还可以对页面片段缓存。合理使用缓存，对网站性能优化意义重大。</p>
+<div align="center"><br>网站性能优化第一定律：优先考虑使用缓存优化性能<br></div>
+
+<h2 id="缓存的基本原理"><a href="#缓存的基本原理" class="headerlink" title="缓存的基本原理"></a>缓存的基本原理</h2><p>缓存指将数据存储在相对较高的访问速度的存储介质中，以供系统处理。一方面缓存访问速度快，可以减少数据访问的时间，另一方面如果缓存的数据是经过计算处理得到的，那么被缓存的数据无需重复计算即可直接使用，因此缓存还起到减少计算时间的作用。</p>
+<p>缓存的本质是一个内存Hash表，网站应用中，数据缓存以一对Key、Value的形式存储在内存Hash表中。Hash表数据读写的时间复杂度为O(1),图4.7为一对KV在Hash表中的存储。</p>
+<p>计算KV对中Key的HashCode对应的Hash表索引，可快速访问Hash表中的数据。许多语言支持获得任意对象的HashCode,可以把HashCode理解为对象的唯一标示符，JAVA语言中Hashcode方法包含在根对象Object中，其返回值是一个Int。然后通过Hashcode计算Hash表的索引下标，最简单的是余数法，使用Hash表数组长度对Hashcode求余，余数即为Hash表索引，使用该索引可直接访问得到Hash表中存储的KV对。Hash表是软件开发中常用到的一种数据结构，其设计思想在很多场景下都可以应用。</p>
+<p>缓存主要用来存放那些读写比很高、很少变化的数据，如商品的类目信息，热门词的搜索列表信息，热门商品信息等，应用程序读取数据时，先到缓存中读取，如果读取不到或数据已失效，在访问数据库，并将数据写入缓存，如图4.8所示。</p>
+<p>网站数据访问通常遵循二八定律，即80%的访问落在20%的数据上，因此利用Hash表和内存的高速访问特性，将这20%的数据缓存起来，可很好地改善系统性能，提高数据读取速度，降低存储访问压力。</p>
+<h2 id="合理使用缓存"><a href="#合理使用缓存" class="headerlink" title="合理使用缓存"></a>合理使用缓存</h2><p>使用缓存对提高系统性能有很多好处，但是不合理使用缓存非但不能提高系统的性能，还会成为系统给的累赘，甚至风险。实践中，缓存中滥用的情景屡见不鲜——过分依赖低可用的缓存系统、不恰当的使用缓存的数据访问特性等。</p>
+<h3 id="频繁修改的数据"><a href="#频繁修改的数据" class="headerlink" title="频繁修改的数据"></a>频繁修改的数据</h3><p>如果缓存中保存的是频繁修改的数据，就会出现数据写入缓存后，应用还来不及读取缓存，数据就已经失效的情形，徒增系统负担。一般来说，数据的读写比在2:1以上，即写入一次缓存，在数据更改前至少读取两次，缓存才有意义。实践中，这个读写比通常非常高，比如新浪微博的热门微博，缓存以后可能会被读取数百万次。</p>
+<h3 id="没有热点的访问"><a href="#没有热点的访问" class="headerlink" title="没有热点的访问"></a>没有热点的访问</h3><p>缓存使用内存作为存储，内存资源宝贵而有限，不可能将所有数据缓存起来，只能将最新访问的数据缓存起来，而将历史数据清理出缓存。如果应用系统访问数据没有热点，不遵循二八定律，即大部分数据访问并没有集中在小部分数据上，那么缓存就没有意义，因为大部分数据还没有被再次访问就已经被挤出缓存。</p>
+<h3 id="数据不一致脏读"><a href="#数据不一致脏读" class="headerlink" title="数据不一致脏读"></a>数据不一致脏读</h3>  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/服务器/">服务器</a>
+</div>
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/服务器架构/">服务器架构</a>
+  </div>
 
 </div>
 
@@ -153,7 +174,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#分布式缓存"><span class="toc-number">1.</span> <span class="toc-text">分布式缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#缓存的基本原理"><span class="toc-number">1.1.</span> <span class="toc-text">缓存的基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#合理使用缓存"><span class="toc-number">1.2.</span> <span class="toc-text">合理使用缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#频繁修改的数据"><span class="toc-number">1.2.1.</span> <span class="toc-text">频繁修改的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#没有热点的访问"><span class="toc-number">1.2.2.</span> <span class="toc-text">没有热点的访问</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据不一致脏读"><span class="toc-number">1.2.3.</span> <span class="toc-text">数据不一致脏读</span></a></li></ol></li></ol></li></ol>
  
   </div>
 
@@ -186,7 +207,7 @@
 		  
 		
 		  
-			<li><a href="/categories/服务器/" title="服务器">服务器<sup>3</sup></a></li>
+			<li><a href="/categories/服务器/" title="服务器">服务器<sup>4</sup></a></li>
 		  
 		
 		</ul>
@@ -199,7 +220,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/服务器架构/" title="服务器架构">服务器架构<sup>3</sup></a></li>
+				<li><a href="/tags/服务器架构/" title="服务器架构">服务器架构<sup>4</sup></a></li>
 			
 		
 			
